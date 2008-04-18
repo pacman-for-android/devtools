@@ -1,4 +1,3 @@
-# $Id: PKGBUILD,v 1.21 2008/02/09 15:58:23 dan Exp $
 # Maintainer: Jason Chu <jason@archlinux.org>
 
 pkgname=devtools

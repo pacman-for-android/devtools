@@ -3,7 +3,7 @@
 
 pkgname=devtools
 epoch=1
-pkgver=1.0.0rc1
+pkgver=1.0.0rc2
 pkgrel=1
 pkgdesc='Tools for Arch Linux package maintainers'
 arch=('any')
@@ -29,8 +29,6 @@ depends=(
   git
   mercurial
   subversion
-
-  devtools
 )
 makedepends=(
   git
@@ -38,9 +36,10 @@ makedepends=(
   shellcheck
 )
 optdepends=('btrfs-progs: btrfs support')
+replaces=(devtools-git-poc)
 #source=(${url}/uploads/dd8ad73d91417e228d94134e238b9043/devtools-${pkgver}.tar.gz
 #        ${url}/uploads/3b99e9787a1ccbaf0cd3b7f1380f9e2e/devtools-${pkgver}.tar.gz.sig)
-_commit=41d4624879d01b1269d6af9c1440592a15ad7784
+_commit=6ce666a1669235749c17d5c44d8a24dea4a135da
 source=("${pkgname}::git+https://gitlab.archlinux.org/archlinux/devtools.git#commit=${_commit}")
 validpgpkeys=(
   '4AA4767BBC9C4B1D18AE28B77F2D434B9741E8AC' # Pierre Schmitz <pierre@archlinux.org>

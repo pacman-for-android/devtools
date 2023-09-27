@@ -4,13 +4,13 @@
 pkgname=devtools
 epoch=1
 pkgver=1.0.3
-pkgrel=2
+pkgrel=2.3
 pkgdesc='Tools for Arch Linux package maintainers'
 arch=('any')
 license=('GPL')
 url='https://gitlab.archlinux.org/archlinux/devtools'
 depends=(
-  arch-install-scripts
+  install-scripts
   awk
   bash
   binutils
@@ -25,19 +25,15 @@ depends=(
   rsync
   sed
   util-linux
-
-  bzr
   git
-  mercurial
-  subversion
 )
 makedepends=(
   asciidoc
-  shellcheck
+  # shellcheck
 )
 optdepends=('btrfs-progs: btrfs support')
 replaces=(devtools-git-poc)
-source=(https://gitlab.archlinux.org/archlinux/devtools/-/releases/v${pkgver}/downloads/devtools-${pkgver}.tar.gz{,.sig})
+source=(devtools::git+https://github.com/pacman-for-android/devtools-fork#commit=146a442)
 validpgpkeys=(
   '4AA4767BBC9C4B1D18AE28B77F2D434B9741E8AC' # Pierre Schmitz <pierre@archlinux.org>
   '86CFFCA918CF3AF47147588051E8B148A9999C34' # Evangelos Foutras <foutrelis@archlinux.org>
@@ -47,19 +43,17 @@ validpgpkeys=(
   '6645B0A8C7005E78DB1D7864F99FFE0FEAE999BD' # Allan McRae (Developer) <allan@archlinux.org>
   'E240B57E2C4630BA768E2F26FC1B547C8D8172C8' # Levente Polyak <anthraxx@archlinux.org>
 )
-sha256sums=('371db8d7e5f53b2a1a3eba37ca9c866c02133deba9ac36c654150308ed3f7a97'
-            'SKIP')
-b2sums=('7530a21103009fbe0cc5ff150111fe7edddf80113d59fe895b740e2d7dab355cce4bad06d00404bdb8be65a3322170ab917d25d785529a2f7632a3ad4a85f4a3'
-        'SKIP')
+sha256sums=('SKIP')
+b2sums=('SKIP')
 
 build() {
-  cd ${pkgname}-${pkgver}
-  make BUILDTOOLVER="${epoch}:${pkgver}-${pkgrel}-${arch}" PREFIX=/usr
+  cd ${pkgname}
+  make BUILDTOOLVER="${epoch}:${pkgver}-${pkgrel}-${arch}" PREFIX=/data/usr
 }
 
 package() {
-  cd ${pkgname}-${pkgver}
-  make PREFIX=/usr DESTDIR="${pkgdir}" install
+  cd ${pkgname}
+  make PREFIX=/data/usr DESTDIR="${pkgdir}" install
 }
 
 # vim: ts=2 sw=2 et:

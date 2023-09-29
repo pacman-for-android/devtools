@@ -4,7 +4,7 @@
 pkgname=devtools
 epoch=1
 pkgver=1.0.3
-pkgrel=2.3
+pkgrel=2.4
 pkgdesc='Tools for Arch Linux package maintainers'
 arch=('any')
 license=('GPL')
@@ -33,7 +33,7 @@ makedepends=(
 )
 optdepends=('btrfs-progs: btrfs support')
 replaces=(devtools-git-poc)
-source=(devtools::git+https://github.com/pacman-for-android/devtools-fork#commit=146a442)
+source=(devtools::git+https://github.com/pacman-for-android/devtools-fork#commit=414a7dd010288d97fe2c13c7a41b35508b58e948)
 validpgpkeys=(
   '4AA4767BBC9C4B1D18AE28B77F2D434B9741E8AC' # Pierre Schmitz <pierre@archlinux.org>
   '86CFFCA918CF3AF47147588051E8B148A9999C34' # Evangelos Foutras <foutrelis@archlinux.org>
